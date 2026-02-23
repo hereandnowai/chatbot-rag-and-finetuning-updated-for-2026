@@ -8,12 +8,16 @@ import config
 llm = ChatOllama(model=config.CHAT_MODEL, base_url=config.OLLAMA_BASE_URL)
 
 def ai_chatbot(message, history):
-    # 'history' for Gradio 6 is a list of [user, ai] message pairs or specialized objects. 
-    # For simplicity in this teaching project, we convert standard historical interaction.
+    # Handle Gradio 6 history (list of dicts) vs terminal history (list of pairs)
     chat_history = [("system", config.SYSTEM_PROMPT)]
-    for user_msg, ai_msg in history:
-        chat_history.append(("human", user_msg))
-        chat_history.append(("ai", ai_msg))
+    for item in history:
+        if isinstance(item, dict):
+            role = "human" if item["role"] == "user" else "ai"
+            chat_history.append((role, item["content"]))
+        else:
+            user_msg, ai_msg = item
+            chat_history.append(("human", user_msg))
+            chat_history.append(("ai", ai_msg))
     
     chat_history.append(("human", message))
     
