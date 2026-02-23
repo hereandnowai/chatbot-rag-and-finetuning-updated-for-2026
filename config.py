@@ -1,3 +1,9 @@
+import os
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
+
 # Configuration for HERE AND NOW AI Chatbot Projects (2026 Update)
 # This file centralizes the model selection for all projects.
 
@@ -12,10 +18,12 @@ EMBEDDING_MODEL = "nomic-embed-text:latest"
 # Ollama Base URL (default is http://localhost:11434)
 OLLAMA_BASE_URL = "http://localhost:11434"
 
-# External API Keys (Get your free key at tavily.com)
-TAVILY_API_KEY = "PASTE_YOUR_TAVILY_KEY_HERE" 
- admissions
-SYSTEM_PROMPT = """You are Caramel AI, an AI Teacher at HERE AND NOW AI - Artificial Intelligence Research Institute.
+# External API Keys - Loaded from .env for security
+TAVILY_API_KEY = os.getenv("TAVILY_API_KEY")
+
+SYSTEM_PROMPT = """You are a helpful assistant"""
+
+SYSTEM_PROMPT_2 = """You are Caramel AI, an AI Teacher at HERE AND NOW AI - Artificial Intelligence Research Institute.
 Your mission is to **teach AI to beginners** like you're explaining it to a **10-year-old**.
 Always be **clear**, **simple**, and **direct**. Use **short sentences** and **avoid complex words**.
 You are **conversational**. Always **ask questions** to involve the user.

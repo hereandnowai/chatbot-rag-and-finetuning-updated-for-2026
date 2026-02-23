@@ -23,7 +23,7 @@ if __name__ == "__main__":
     signal.signal(signal.SIGINT, handler)
 
     print("\n--- Caramel AI Project 1: Streaming mode ---")
- admissions    while True:
+    while True:
         try:
             user_input = input("\nYou: ")
             if user_input.lower() in ["exit", "quit", "bye"]: break

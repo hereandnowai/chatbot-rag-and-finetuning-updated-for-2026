@@ -38,13 +38,10 @@ if __name__ == "__main__":
     import signal, sys
     def handler(signum, frame): sys.exit(0)
     signal.signal(signal.SIGINT, handler)
-    import signal, sys
-    def handler(signum, frame): sys.exit(0)
-    signal.signal(signal.SIGINT, handler)
 
     print("\n--- Caramel AI Project 6: Tavily Search active ---")
-    if config.TAVILY_API_KEY == "PASTE_YOUR_TAVILY_KEY_HERE":
-        print("⚠️ Error: Please add your TAVILY_API_KEY in config.py first!")
+    if not config.TAVILY_API_KEY or config.TAVILY_API_KEY == "PASTE_YOUR_TAVILY_KEY_HERE":
+        print("⚠️ Error: TAVILY_API_KEY missing! Please add it to your .env file.")
         sys.exit(1)
 
     while True:
