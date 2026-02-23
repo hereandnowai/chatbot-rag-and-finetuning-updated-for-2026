@@ -1,28 +1,23 @@
 <p align="center">
   <a href="https://hereandnowai.com" target="_blank">
-    <img src="https://raw.githubusercontent.com/hereandnowai/images/refs/heads/main/logos/HNAI%20Title%20-Teal%20%26%20Golden%20Logo%20-%20DESIGN%203%20-%20Raj-07.png" alt="HERE AND NOW AI Logo" width="400"/>
+    <img src="https://raw.githubusercontent.com/hereandnowai/images/refs/heads/main/logos/logo-of-here-and-now-ai.png" alt="HERE AND NOW AI Logo" width="400"/>
   </a>
 </p>
 
-<h1 align="center">Learn to Build Multimodal Chatbots</h1>
+<h1 align="center">Chatbot, RAG and Fine-tuning (2026 Edition)</h1>
 
 <p align="center">
-  <em>A project-based tutorial by <a href="https://hereandnowai.com" target="_blank">HERE AND NOW AI</a>, designed with a passion for innovation.</em>
+  <em>A project-based tutorial by <a href="https://hereandnowai.com" target="_blank">HERE AND NOW AI</a></em><br>
+  <strong>"AI is Good"</strong>
 </p>
 
 ---
 
-# Learn to Build Multimodal Chatbots (2026 Edition)
+## 🌟 Overview
 
-<p align="center">
-  <em>A project-based tutorial by <a href="https://hereandnowai.com" target="_blank">HERE AND NOW AI</a>, designed with a passion for innovation.</em>
-</p>
+Welcome to the **HERE AND NOW AI** 2026 laboratory. This repository contains a curated series of projects designed to take students and researchers from foundational chatbot development to advanced state-of-the-art **Retrieval-Augmented Generation (RAG)** systems, all running locally for maximum privacy and performance.
 
----
-
-# Build Local AI-Powered Chatbots with LangChain & Ollama
-
-Welcome to the updated 2026 edition of this beginner-friendly project from **HERE AND NOW AI – Artificial Intelligence Research Institute**. You will learn how to build private, local, and multimodal **AI-powered chatbots** using **LangChain**, **Ollama**, and **Gradio**.
+By moving away from proprietary cloud APIs and embracing the **Ollama + LangChain** stack, we empower developers to build truly sovereign AI agents.
 
 ---
 
@@ -89,10 +84,18 @@ AI Chatbot built using:
 
 ---
 
-## 📬 Get in Touch
+## 📬 Connect with Us
 
-For queries, collaborations, or AI workshops, reach out to:  
-📩 info@hereandnowai.com  
-🌐 [www.hereandnowai.com](https://www.hereandnowai.com)
+Stay updated with our latest research and workshops:
+
+- **Website**: [hereandnowai.com](https://hereandnowai.com)
+- **LinkedIn**: [hereandnowai](https://www.linkedin.com/company/hereandnowai/)
+- **GitHub**: [hereandnowai](https://github.com/hereandnowai)
+- **Instagram**: [@hereandnow_ai](https://instagram.com/hereandnow_ai)
+- **YouTube**: [@hereandnow_ai](https://youtube.com/@hereandnow_ai)
+- **X (Twitter)**: [@hereandnow_ai](https://x.com/hereandnow_ai)
+- **Email**: [info@hereandnowai.com](mailto:info@hereandnowai.com)
+- **Support**: +91 996 296 1000
+
 "AI is Good"
 
