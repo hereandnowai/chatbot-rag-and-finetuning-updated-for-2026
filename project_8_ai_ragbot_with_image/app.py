@@ -22,10 +22,10 @@ def get_image_description(image_path):
     return llm.invoke([("system", config.SYSTEM_PROMPT), msg]).content
 
 if __name__ == "__main__":
-    gr.Interface(
-        fn=get_image_description,
-        inputs=gr.Image(type="filepath", label="Upload Image"),
-        outputs=gr.Textbox(label="Image Description"),
-        title="AI Image Describer",
-        description="Upload an image and the AI will describe it for you.",
-    ).launch(theme="default")
+    while True:
+        path = input("Enter image path (or 'exit'): ")
+        if path.lower() in ["exit", "quit"]: break
+        if os.path.exists(path):
+            print(f"Caramel AI: {get_image_description(path)}")
+        else:
+            print("File not found.")

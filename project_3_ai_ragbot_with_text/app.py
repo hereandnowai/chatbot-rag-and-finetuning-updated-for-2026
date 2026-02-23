@@ -17,4 +17,7 @@ def ragbot_text(message, history):
     return llm.invoke([("system", config.SYSTEM_PROMPT), ("human", prompt)]).content
 
 if __name__ == "__main__":
-    print(ragbot_text("What is this about?", []))
+    while True:
+        user_input = input("You (Ask about the context): ")
+        if user_input.lower() in ["exit", "quit", "bye"]: break
+        print(f"Caramel AI: {ragbot_text(user_input, [])}")

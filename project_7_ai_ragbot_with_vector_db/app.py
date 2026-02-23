@@ -23,4 +23,7 @@ def get_response(query, history):
     return llm.invoke([("system", config.SYSTEM_PROMPT), ("human", prompt)]).content
 
 if __name__ == "__main__":
-    gr.ChatInterface(get_response).launch(theme="default")
+    while True:
+        user_input = input("You (Ask Search Query): ")
+        if user_input.lower() in ["exit", "quit", "bye"]: break
+        print(f"Caramel AI: {get_response(user_input, [])}")

@@ -15,4 +15,7 @@ def ai_chatbot(message, history):
     return response.content
 
 if __name__ == "__main__":
-    print(ai_chatbot("What is AI?", []))
+    while True:
+        user_input = input("You: ")
+        if user_input.lower() in ["exit", "quit", "bye"]: break
+        print(f"Caramel AI: {ai_chatbot(user_input, [])}")

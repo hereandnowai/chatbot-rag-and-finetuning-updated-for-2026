@@ -17,4 +17,7 @@ def get_response(msg, history):
     return llm.invoke([("system", config.SYSTEM_PROMPT), ("human", f"Context: {context}\n\nQuestion: {msg}")]).content
 
 if __name__ == "__main__":
-    gr.ChatInterface(get_response).launch(theme="default")
+    while True:
+        user_input = input("You (Ask about the PDF): ")
+        if user_input.lower() in ["exit", "quit", "bye"]: break
+        print(f"Caramel AI: {get_response(user_input, [])}")

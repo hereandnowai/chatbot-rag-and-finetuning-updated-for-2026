@@ -19,4 +19,10 @@ def ai_chatbot(message, history):
     return llm.invoke(chat_history).content
 
 if __name__ == "__main__":
-    print(ai_chatbot("Hi! I'm learning AI.", []))
+    chat_history = []
+    while True:
+        user_input = input("You: ")
+        if user_input.lower() in ["exit", "quit", "bye"]: break
+        response = ai_chatbot(user_input, chat_history)
+        print(f"Caramel AI: {response}")
+        chat_history.append((user_input, response))
