@@ -1,6 +1,6 @@
 from langchain_ollama import ChatOllama
 from pypdf import PdfReader
-import requests, sys, os, gradio as gr
+import sys, os
 
 # Robust path to find config.py in the project root
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))

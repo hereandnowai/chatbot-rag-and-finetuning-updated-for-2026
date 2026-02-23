@@ -1,5 +1,5 @@
 from langchain_ollama import ChatOllama
-import requests, sys, os
+import sys, os
 
 # Robust path to find config.py in the project root
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))

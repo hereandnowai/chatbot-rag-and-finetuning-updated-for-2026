@@ -1,6 +1,6 @@
 from langchain_ollama import ChatOllama
 from langchain_core.messages import HumanMessage
-import base64, sys, os, gradio as gr
+import base64, sys, os
 
 # Robust path to find config.py in the project root
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
