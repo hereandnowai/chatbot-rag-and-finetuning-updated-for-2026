@@ -34,6 +34,9 @@ def get_response(query, history):
         yield partial_text
 
 if __name__ == "__main__":
+    import signal, sys
+    def handler(signum, frame): sys.exit(0)
+    signal.signal(signal.SIGINT, handler)
     print("\n--- Caramel AI Project 7: Vector search (Streaming) active! ---")
     while True:
         try:

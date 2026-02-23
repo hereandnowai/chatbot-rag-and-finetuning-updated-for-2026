@@ -29,6 +29,9 @@ def ai_chatbot(message, history):
         yield partial_text
 
 if __name__ == "__main__":
+    import signal, sys
+    def handler(signum, frame): sys.exit(0)
+    signal.signal(signal.SIGINT, handler)
     chat_history_state = []
     print("\n--- Caramel AI Project 2: Memory & Streaming mode ---")
     while True:

@@ -28,6 +28,9 @@ def get_image_description(image_path):
         yield partial_text
 
 if __name__ == "__main__":
+    import signal, sys
+    def handler(signum, frame): sys.exit(0)
+    signal.signal(signal.SIGINT, handler)
     print("\n--- Caramel AI Project 8: Vision (Streaming) active ---")
     while True:
         try:

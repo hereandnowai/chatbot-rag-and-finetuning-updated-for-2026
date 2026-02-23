@@ -25,6 +25,9 @@ def ragbot_text(message, history):
         yield partial_text
 
 if __name__ == "__main__":
+    import signal, sys
+    def handler(signum, frame): sys.exit(0)
+    signal.signal(signal.SIGINT, handler)
     print("\n--- Caramel AI Project 3: Text RAG (Streaming) active ---")
     while True:
         try:

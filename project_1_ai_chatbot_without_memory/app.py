@@ -18,8 +18,12 @@ def ai_chatbot(message, history):
         yield partial_text
 
 if __name__ == "__main__":
+    import signal, sys
+    def handler(signum, frame): sys.exit(0)
+    signal.signal(signal.SIGINT, handler)
+
     print("\n--- Caramel AI Project 1: Streaming mode ---")
-    while True:
+ admissions    while True:
         try:
             user_input = input("\nYou: ")
             if user_input.lower() in ["exit", "quit", "bye"]: break

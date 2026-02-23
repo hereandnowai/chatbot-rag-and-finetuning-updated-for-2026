@@ -17,11 +17,14 @@ search = TavilySearchResults(k=3)
 
 def search_chatbot(message, history):
     # Step 1: Search the internet
-    print(f"🔍 Caramel AI is searching for: {message}")
-    search_results = search.run(message)
-    
-    # Step 2: Combine results into context
-    context = "\n".join([res['content'] for res in search_results])
+    try:
+        print(f"🔍 Caramel AI is searching for: {message}")
+        search_results = search.run(message)
+        # Step 2: Combine results into context
+        context = "\n".join([res['content'] for res in search_results])
+    except Exception as e:
+        print(f"⚠️ Search failed: {e}")
+        context = "I couldn't reach the live internet right now, but I'll answer from my memory."
     
     # Step 3: Stream the response with internet context
     prompt = f"Using this fresh internet data:\n{context}\n\nQuestion: {message}"
@@ -32,7 +35,18 @@ def search_chatbot(message, history):
         yield partial_text
 
 if __name__ == "__main__":
+    import signal, sys
+    def handler(signum, frame): sys.exit(0)
+    signal.signal(signal.SIGINT, handler)
+    import signal, sys
+    def handler(signum, frame): sys.exit(0)
+    signal.signal(signal.SIGINT, handler)
+
     print("\n--- Caramel AI Project 6: Tavily Search active ---")
+    if config.TAVILY_API_KEY == "PASTE_YOUR_TAVILY_KEY_HERE":
+        print("⚠️ Error: Please add your TAVILY_API_KEY in config.py first!")
+        sys.exit(1)
+
     while True:
         try:
             user_input = input("\nYou (Ask anything about the world): ")
