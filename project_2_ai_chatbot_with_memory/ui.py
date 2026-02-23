@@ -46,4 +46,7 @@ with gr.Blocks(title=brand_info['organizationName']) as demo:
 
 # Launch the Gradio interface when the script is executed
 if __name__ == "__main__":
-    demo.launch(theme='default') # Launch the demo with the default theme
+    import signal, sys
+    def handler(signum, frame): sys.exit(0)
+    signal.signal(signal.SIGINT, handler)
+    demo.launch(theme="default", quiet=True) # Launch the demo with the default theme

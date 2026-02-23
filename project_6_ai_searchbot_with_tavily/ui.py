@@ -20,4 +20,7 @@ with gr.Blocks(title=f"Search - {brand_info['organizationName']}") as demo:
     )
 
 if __name__ == "__main__":
+    import signal, sys
+    def handler(signum, frame): sys.exit(0)
+    signal.signal(signal.SIGINT, handler)
     demo.launch()
