@@ -14,10 +14,27 @@ reader = PdfReader(pdf_path)
 context = " ".join([page.extract_text() for page in reader.pages])
 
 def get_response(msg, history):
-    return llm.invoke([("system", config.SYSTEM_PROMPT), ("human", f"Context: {context}\n\nQuestion: {msg}")]).content
+    prompt = f"Using this context:\n{context}\n\nQuestion: {msg}"
+    
+    # Use .stream() for PDF RAG streaming
+    partial_text = ""
+    for chunk in llm.stream([("system", config.SYSTEM_PROMPT), ("human", prompt)]):
+        partial_text += chunk.content
+        yield partial_text
 
 if __name__ == "__main__":
+    print("\n--- Caramel AI Project 5: PDF RAG (Streaming) active ---")
     while True:
-        user_input = input("You (Ask about the PDF): ")
-        if user_input.lower() in ["exit", "quit", "bye"]: break
-        print(f"Caramel AI: {get_response(user_input, [])}")
+        try:
+            user_input = input("\nYou (Ask about PDF): ")
+            if user_input.lower() in ["exit", "quit", "bye"]: break
+            if not user_input.strip(): continue
+
+            print("Caramel AI: ", end="", flush=True)
+            last_chars = 0
+            for partial_text in get_response(user_input, []):
+                print(partial_text[last_chars:], end="", flush=True)
+                last_chars = len(partial_text)
+            print()
+        except KeyboardInterrupt:
+            break

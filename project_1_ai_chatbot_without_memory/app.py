@@ -18,7 +18,18 @@ def ai_chatbot(message, history):
         yield partial_text
 
 if __name__ == "__main__":
+    print("\n--- Caramel AI Project 1: Streaming mode ---")
     while True:
-        user_input = input("\nYou: ")
-        if user_input.lower() in ["exit", "quit", "bye"]: break
-        print(f"\nCaramel AI: {ai_chatbot(user_input, [])}")
+        try:
+            user_input = input("\nYou: ")
+            if user_input.lower() in ["exit", "quit", "bye"]: break
+            if not user_input.strip(): continue
+            
+            print("Caramel AI: ", end="", flush=True)
+            last_length = 0
+            for partial_text in ai_chatbot(user_input, []):
+                print(partial_text[last_length:], end="", flush=True)
+                last_length = len(partial_text)
+            print()
+        except KeyboardInterrupt:
+            break
