@@ -2,7 +2,7 @@
 # This file centralizes the model selection for all projects.
 
 # Chat Models from Ollama
-CHAT_MODEL = "gemma3:1b" # Recommended default
+CHAT_MODEL = "gpt-oss:20b" # Recommended default
 VISION_MODEL = "qwen3-vl:2b"        # For image processing
 FAST_MODEL = "gemma3:270m"           # Faster responses
 

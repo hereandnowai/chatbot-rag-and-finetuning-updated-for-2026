@@ -26,18 +26,27 @@ def get_response(query, history):
     context = "\n".join([doc.page_content for doc in results])
     
     prompt = f"Using this context:\n{context}\n\nQuestion: {query}"
-    return llm.invoke([("system", config.SYSTEM_PROMPT), ("human", prompt)]).content
+    
+    # Use .stream() for RAG streaming
+    partial_text = ""
+    for chunk in llm.stream([("system", config.SYSTEM_PROMPT), ("human", prompt)]):
+        partial_text += chunk.content
+        yield partial_text
 
 if __name__ == "__main__":
-    print("\n--- Caramel AI Project 7: Vector search is active! ---")
+    print("\n--- Caramel AI Project 7: Vector search (Streaming) active! ---")
     while True:
         try:
             user_input = input("You: ")
             if user_input.lower() in ["exit", "quit", "bye"]: break
             if not user_input.strip(): continue
             
-            print("Caramel AI thinking...")
-            print(f"Caramel AI: {get_response(user_input, [])}")
+            print("Caramel AI: ", end="", flush=True)
+            last_chars = 0
+            for partial_text in get_response(user_input, []):
+                print(partial_text[last_chars:], end="", flush=True)
+                last_chars = len(partial_text)
+            print()
         except KeyboardInterrupt:
             print("\nShutting down...")
             break

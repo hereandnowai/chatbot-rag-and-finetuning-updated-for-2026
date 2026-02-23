@@ -16,7 +16,13 @@ def ai_chatbot(message, history):
         chat_history.append(("ai", ai_msg))
     
     chat_history.append(("human", message))
-    return llm.invoke(chat_history).content
+    
+    # Use .stream() for memory-aware streaming
+    stream = llm.stream(chat_history)
+    partial_text = ""
+    for chunk in stream:
+        partial_text += chunk.content
+        yield partial_text
 
 if __name__ == "__main__":
     chat_history = []
