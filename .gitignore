@@ -1,0 +1,21 @@
+# Environment
+.venv/
+.env
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Mac
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
+
+# Local data
+temp.pdf
+*.txt
+!README.md
+!profile-of-ruthran-raghavan.txt
+!profile-of-hereandnowai.txt
+
